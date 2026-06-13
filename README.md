@@ -104,23 +104,28 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install pandas geopandas shapely networkx matplotlib streamlit streamlit-folium folium torch
 
 ---
-🖥️ OPERATIONAL WORKFLOW EXECUTION
+🖥️ OPERATIONAL EXECUTION
 ---
-### A. Verify Data Schema:
-Ensure your raw downloaded file is located at `data/raw/india_groundwater_2025.csv`. 
-Run the inspection script to verify your columns are correctly aligned:
+Run the pipeline elements step-by-step to verify files and launch the dashboard web panel:
+
+### Step 1: Verify the Kaggle Data Columns
+Ensure your raw source dataset file is placed at `data/raw/india_groundwater_2025.csv`, then run the column inspector:
+```powershell
 .\.venv\Scripts\python.exe notebooks/inspect_kaggle.py
+```
 
-### B. Launch the GNN Execution Core:
-Run the mathematical pipeline orchestrator file to verify geometric tensor configurations:
+### Step 2: Test the Graph Deep Learning Engine
+Run the main pipeline to verify spatial tensor configurations and geometric data structures:
+```powershell
 .\.venv\Scripts\python.exe main.py
+```
 
-### C. Spin Up the Web Dashboard Server:
-Boot up the Streamlit engine to launch the production interface automatically in your browser:
+### Step 3: Launch the Web Intelligence Dashboard
+Spin up the local Streamlit application server to open the interactive page automatically in your browser:
+```powershell
 .\.venv\Scripts\python.exe -m streamlit run app.py
-
-Once the local server initializes, your browser will open to `http://localhost:8501`, 
-displaying the unified Map, Problem Analytics, GNN Predictions, and Solutions panels.
+```
+Once initialized, your browser will immediately open `http://localhost:8501` to display the map and prediction metrics!
 
 ---
 💡 DESIGN PATTERNS & DATA-DRIVEN INTERVENTIONS
