@@ -59,28 +59,33 @@ advisories.
      and outputs GNN projection data frames along with localized strategic solutions.
 
 ---
-📂 DIRECTORY STRUCTURE
+📂 DETAILED REPOSITORY ARCHITECTURE
 ---
+The JalDrishti project is built following strict MLOps modular design principles, 
+separating data ingestion, graph processing models, exploratory work, and user 
+interfaces. Below is the production tree structure:
+
+```text
 JalDrishti/
+├── .gitignore                   # Excludes massive datasets (.csv) and caches from tracking
+├── app.py                       # Core Streamlit web application & user interface logic
+├── main.py                      # Orchestrator running baseline structural GNN framework checks
+├── README.md                    # Main repository documentation & deployment guide
 │
-├── .gitignore                   # Safety configuration preventing massive CSV uploads
-├── app.py                       # Main Streamlit web application dashboard layout
-├── main.py                      # Orchestrator running the core GNN deep learning checks
-├── README.txt                   # Comprehensive project documentation profile (This file)
+├── data/                        # Integrated Data Storage Layer (Excluded from GitHub)
+│   ├── raw/                     # Houses Kushvinth Madhavan's 30-Year source CSV files
+│   └── variants/                # Clean regional testing sub-slices for dynamic web uploads
 │
-├── data/
-│   ├── raw/                     # Directory for Kushvinth Madhavan's 30-year CSV data
-│   └── variants/                # Automated regional split slices for live uploader tests
+├── notebooks/                   # R&D and Exploratory Sandbox Environment
+│   ├── inspect_kaggle.py        # Validates incoming raw CSV structural layouts
+│   ├── clean_incoming_data.py   # Maps raw external columns to internal system features
+│   └── generate_dashboard_variants.py # Automatic script generating targeted regional datasets
 │
-├── notebooks/
-│   ├── inspect_kaggle.py        # Utility script to instantly review CSV column headers
-│   ├── clean_incoming_data.py   # Data mapper routine adapting raw datasets to the app layout
-│   └── generate_dashboard_variants.py # Python pipeline segmenting raw data into testing variant files
-│
-└── src/
-    ├── __init__.py              # Initializer bundling src as a modular package
-    ├── data_pipeline.py         # GeoPandas spatial indexing & coordinate transformations
-    └── graph_factory.py         # NetworkX topology builders and radial edge mapping
+└── src/                         # Production-Grade Modular Source Package
+    ├── __init__.py              # Bundles directory as a seamless, importable Python package
+    ├── data_pipeline.py         # Handles GeoPandas GIS spatial datum UTM re-projections
+    └── graph_factory.py         # Spatially computes radial distance-based NetworkX topologies
+```
 
 ---
 📦 SYSTEM PRE-REQUISITES & INSTALLATION
